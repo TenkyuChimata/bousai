@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+  <title>Wolfx 实时地震观测网页说明</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://wolfx.jp/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://wolfx.jp/css/index.css" rel="stylesheet">
+  <link rel="shortcut icon" href="images/favicon.ico">
+  <script src="https://wolfx.jp/js/jquery-3.7.1.min.js"></script>
+  <script src="https://wolfx.jp/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <div class="header">
+      <ul class="nav nav-pills pull-right">
+      </ul>
+      <h3 class="text-muted">Wolfx 实时地震观测网页说明</h3>
+    </div>
+
+    <div class="row">
+      <div class="span10">
+        <div class="ads">
+
+          <h4>简介</h4>
+          <p>
+          <ul>
+            <li>本站是一个实时地震监测网站</li>
+            <li>官方网站：<a href="https://bs.wolfx.jp" target="_blank">https://bs.wolfx.jp</a></li>
+          </ul>
+          </p>
+
+          <h4>使用许可</h4>
+          <p>
+          <ul>
+            <li>本站所有内容均向公众公开，您可以在遵守以下条例的前提下自由使用</li>
+            <li>若要在第三方(非本站)引用本站内容(包括直播)，请注明内容来自本站</li>
+            <li>禁止删除或修改关于本网站内容的著作权信息</li>
+            <li>禁止对本网站内容进行副本或反向工程</li>
+            <li>您自愿接收来自本网站提供的防灾信息</li>
+          </ul>
+          </p>
+
+          <h4>注意事项</h4>
+          <p>
+          <ul>
+            <li>部分画面使用UTC时间记录，换算为北京时间需加8小时</li>
+            <li>如果您在使用过程中遇到任何问题，请在B站与本人进行联系</li>
+            <li>网页中的震度指由JMA制定的日本烈度标准，烈度指由CSIS制定的中国烈度标准</li>
+            <li>由于Chrome等浏览器默认禁止了网页的音频自动播放功能，因此需要您手动打开本网页的音频权限</li>
+            <li>由于地震测站位于城市市区地表，因此可能会出现一些背景噪声，一般可以很容易的将它们与地震波形所区分</li>
+            <li>本系统将在检测到地震时自动发出警报，在极少数情况下可能会出现误报(如电磁干扰或打雷等)，您可以透过观测震动频谱来判定是否为地震</li>
+          </ul>
+          </p>
+
+          <h4>各介面说明</h4>
+          <p>
+          <ul>
+            <li>左上方为日本气象厅地震情报列表</li>
+            <li>中上方为CEIV2(中国地震信息+四川地震局地震预警)/近12小时内所记录的震动波形图(无滤波)</li>
+            <li>右上方(左)为強震モニタ(实时日本地面加速度+EEW)</li>
+            <li>右下方为中国地震台网地震情报列表</li>
+          </ul>
+          </p>
+
+          <h4>公开资料</h4>
+          <p>
+          <ul>
+            <li>公开API调用文档：<a href="https://api.wolfx.jp" target="_blank">https://api.wolfx.jp</a></li>
+            <li>JMA地震情报列表(新版)：<a href="https://bs.wolfx.jp/newJMAEQList" target="_blank">https://bs.wolfx.jp/newJMAEQList</a></li>
+            <li>JMA地震情报列表(旧版)：<a href="https://bs.wolfx.jp/JMAEQList" target="_blank">https://bs.wolfx.jp/JMAEQList</a></li>
+            <li>CENC地震情报列表：<a href="https://bs.wolfx.jp/CENCEQList" target="_blank">https://bs.wolfx.jp/CENCEQList</a></li>
+          </ul>
+          </p>
+
+          <h4>第三方资料提供(排名不分先后)</h4>
+          <p>
+          <ul>
+            <li><a href="https://www.jma.go.jp" target="_blank">JMA</a></li>
+            <li><a href="https://www.bosai.go.jp" target="_blank">NIED</a></li>
+            <li><a href="http://www.scdzj.gov.cn" target="_blank">四川地震局</a></li>
+            <li><a href="https://news.ceic.ac.cn" target="_blank">中国地震台网</a></li>
+          </ul>
+          </p>
+
+          <h5>最后更新时间: 2024/05/21</h5>
+
+          <div class="footer">
+            <p>Copyright &copy; <a href="https://wolfx.jp">Wolfx Project.</a> All Rights Reserved.</p>
+          </div>
+        </div>
+</body>
+
+</html>

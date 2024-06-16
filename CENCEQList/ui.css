@@ -1,0 +1,176 @@
+@font-face {
+    font-family: OPPOSans-H;
+    src: url("https://wolfx.jp/fonts/OPPOSans3.0cn-Bold.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: OPPOSans-B;
+    src: url("https://wolfx.jp/fonts/OPPOSans3.0cn-Medium.woff2") format("woff2");
+}
+
+body {
+    font-family: OPPOSans-B;
+    margin: 0 auto;
+    user-select: none;
+}
+
+[id^="main"] {
+    width: 243px;
+    background-color: #46646E;
+    /* border-top: 4px solid #BBB; */
+    color: white;
+    text-align: center;
+    padding: 0px 5px;
+    height: 47px;
+    /* border-radius: 10px; */
+    /* border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    margin-top: 1px; */
+}
+
+#main {
+    background-color: #46646E;
+    /* border-top: 2px solid #BBB; */
+    color: white;
+    text-align: center;
+    padding: 0px 5px;
+    border: 1px solid #BBB;
+    border-right: 0px;
+    height: 83px;
+    width: 193px;
+    border-top-left-radius: 10px;
+}
+
+#main #epicenter {
+    display: block;
+    bottom: 1px;
+    text-align: left;
+    position: absolute;
+    top: 18px;
+    width: 200px;
+    height: 80px;
+    left: 5px;
+}
+
+#main #mletter {
+    position: absolute;
+    top: 60px;
+    left: 135px;
+    font-size: 18px;
+}
+
+#main #magnitude {
+    position: absolute;
+    top: 52px;
+    left: 155px;
+    font-size: 25px;
+}
+
+#shindo {
+    float: left;
+    display: inline-block;
+    height: 83px;
+    width: 98px;
+    background-color: #BBB;
+    border: 1px solid #BBB;
+    font-size: 64px;
+    text-align: center;
+    line-height: 98px;
+    box-sizing: content-box;
+    font-family: OPPOSans-H;
+    border-top-right-radius: 10px;
+}
+
+div[id^="shindo"] {
+    /* border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    margin-top: 1px; */
+    float: left;
+    display: inline-block;
+    width: 49px;
+    background-color: #888;
+    border-left: 2px solid #BBB;
+    /* border-top: 4px solid #BBB; */
+    line-height: 47px;
+    font-size: 30px;
+    text-align: center;
+    font-family: OPPOSans-H;
+}
+
+#shindo7 {
+    border-bottom-right-radius: 10px;
+}
+
+#main7 {
+    border-bottom-left-radius: 10px;
+}
+
+.shindotext {
+    position: absolute;
+    top: 5px;
+    left: 225px;
+    opacity: 0.75;
+    mix-blend-mode: exclusion;
+    color: #FFF;
+}
+
+#epicenter {
+    font-size: 18px;
+    font-weight: bold;
+    display: inline-block;
+    float: left;
+}
+
+#datetime {
+    float: left;
+}
+
+#main #date:first-child {
+    font-size: 16px;
+}
+
+#mag {
+    position: relative;
+    float: right;
+    display: inline-block;
+    margin: 0 auto;
+    top: -5px;
+}
+
+#main #mag {
+    position: inherit;
+    top: 0px;
+}
+
+#ceic {
+    display: inline-block;
+    float: right;
+}
+
+#magnitude {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.clearfix:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+}
+
+#depth {
+    padding-left: 40px;
+    position: absolute;
+    top: 55px;
+    left: -35px;
+}
+
+::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+    background-color: transparent;
+}

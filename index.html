@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="Pragma" content="no-cache">
+        <meta http-equiv="Cache-Control" content="no-cache">
+        <meta http-equiv="Cache" content="no-cache">
+        <meta http-equiv="Expires" content="0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>实时地震监测 | 防災减灾 | Bousai Wolfx | v20240521-v2</title>
+        <meta name="robots" content="index,follow" />
+        <meta name="author" content="Wolfx" />
+        <meta name="keywords" content="地震,防灾,减灾,防災,日本,中国,速报,预警,四川,实时,最新,资讯,EEW,CEIV,強震モニタ" />
+        <meta name="description" content="实时地震定点观测 地震预警 地震速报 最新中国/日本地震资讯" />
+        <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+        <link rel="shortcut icon" href="images/favicon.ico">
+        <script src="https://wolfx.jp/js/tailwindcss.min.js"></script>
+        <style>
+            #attribution {
+                position: fixed;
+                bottom: 0px;
+                left: 0px;
+            }
+
+            #old {
+                position: fixed;
+                bottom: 0px;
+                left: 90px;
+            }
+
+            #about {
+                position: fixed;
+                bottom: 0px;
+                left: 160px;
+            }
+            
+            #toggleBu {
+                position: fixed;
+                bottom: 0px;
+                left: 230px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="app">
+            <div class="flex flex-col h-screen">
+                <div class="flex-1 overflow-hidden">
+                    <div class="grid grid-cols-10 h-full">
+                        <div class="col-span-2 h-full">
+                            <iframe
+                                id="japan-earthquake-list"
+                                frameborder="0"
+                                class="w-full h-full"
+                                scrolling="no"
+                                src="https://bs.wolfx.jp/newJMAEQList/index.html#embed"
+                                style="overflow: hidden; "
+                            ></iframe>
+                        </div>
+                        <div class="col-span-6 relative">
+                            <iframe
+                                class="w-full h-full hidden"
+                                id="local-history-waveform"
+                                frameborder="0"
+                                src="https://dataview.raspberryshake.org/#/AM/REC8D/00/EHZ"
+                            ></iframe>
+                            <iframe
+                                class="w-full h-full"
+                                id="china-earthquake-map"
+                                frameborder="0"
+                                src="https://bs.wolfx.jp/CEIV2-bousai/index.html"
+                            ></iframe>
+                        </div>
+                        <div class="col-span-2 h-full">
+                            <iframe
+                                id="japan-realtime-pga"
+                                frameborder="0"
+                                class="w-full h-full"
+                                scrolling="no"
+                                src="https://bs.wolfx.jp/kyoshin/index.html#embed"
+                                style="overflow: hidden; "
+                            ></iframe>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex-shrink-0 overflow-hidden h-[40%]">
+                    <div class="grid grid-cols-12 h-full">
+                        <div class="col-span-10 h-full">
+                            <iframe
+                                id="realtime_waveform_spectrogram"
+                                frameborder="0"
+                                class="w-full h-full"
+                                src="https://dataview.raspberryshake.org/#/embed/AM/REC8D/00/EHZ"
+                            ></iframe>
+                        </div>
+                        <div class="col-span-2 h-full">
+                            <iframe
+                                class="w-full h-full"
+                                id="china-earthquake-list"
+                                frameborder="0"
+                                src="https://bs.wolfx.jp/CENCEQList/index.html#embed"
+                            ></iframe>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="https://bs.wolfx.jp" id="attribution">&copy; Wolfx Project</a>
+                <a href="https://bs.wolfx.jp/old.html" id="old">旧版入口</a>
+                <a href="https://bs.wolfx.jp/about.html" id="about">使用说明</a>
+                <div id="toggleBu" onclick="toggleF()">切换为历史波形</div>
+            </div>
+        </div>
+    </body>
+    <script type="text/javascript">
+        const _0x22f577=_0x307b,_0x17e93b=_0x307b,_0x42e0f2=_0x307b,_0x34533f=_0x307b,_0x12c560=_0x307b;(function(_0x592a84,_0x1dbd14){const _0x292240=_0x307b,_0x5853c2=_0x307b,_0xa79fc6=_0x307b,_0x301f45=_0x307b,_0x1fc29c=_0x307b,_0x1719b3=_0x592a84();while(!![]){try{const _0x1830fe=-parseInt(_0x292240(0x212,'5@]v'))/(-0x5c2+0x1a38+-0x1475*0x1)*(parseInt(_0x292240(0x23b,'ldtm'))/(-0x120e+0x15f6+0x2*-0x1f3))+-parseInt(_0xa79fc6(0x237,'n[rw'))/(-0x5*-0x75+-0x86*0x7+-0x4*-0x59)+-parseInt(_0x5853c2(0x257,'v(Dc'))/(-0x2376+-0x1*0x1d7d+-0x1*-0x40f7)*(-parseInt(_0x301f45(0x24b,'H20R'))/(-0xf*-0x225+-0x687+-0x199f))+-parseInt(_0x301f45(0x20f,'f8O%'))/(-0x19b*-0x15+0x932+-0x2ae3)*(-parseInt(_0xa79fc6(0x23d,'EG[l'))/(-0x3b5*0x6+-0x14d2+0x2b17))+-parseInt(_0x301f45(0x200,'v(Dc'))/(0x1647+0x254f+-0x3b8e)*(-parseInt(_0x292240(0x1eb,'ldtm'))/(0x29b+0x973+-0xc05))+parseInt(_0x5853c2(0x1e4,'WyBj'))/(-0x11d1*0x1+-0x1*0x1093+0x71*0x4e)+parseInt(_0xa79fc6(0x21c,'Wz8^'))/(-0x1*-0x175f+0x16db*0x1+-0x2e2f);if(_0x1830fe===_0x1dbd14)break;else _0x1719b3['push'](_0x1719b3['shift']());}catch(_0xb51bf2){_0x1719b3['push'](_0x1719b3['shift']());}}}(_0x1955,-0x1*0x90a4f+-0x3e23c+-0x7d*-0x2732));function _0x307b(_0x4ae09c,_0x5d39cb){const _0x2e2540=_0x1955();return _0x307b=function(_0xc5528f,_0x4c906d){_0xc5528f=_0xc5528f-(0xd14+-0x18*0x105+0xd3f);let _0x32de4b=_0x2e2540[_0xc5528f];if(_0x307b['oXiqsV']===undefined){var _0x3b3919=function(_0x1b7552){const _0x356b31='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+/=';let _0x1640c7='',_0x43fb06='';for(let _0x2b0233=-0x935*-0x1+-0x3b*0x5+0x80e*-0x1,_0x55d32b,_0x49b3f0,_0x4c362e=-0x25a4+-0x183a+0x1*0x3dde;_0x49b3f0=_0x1b7552['charAt'](_0x4c362e++);~_0x49b3f0&&(_0x55d32b=_0x2b0233%(-0x15fb+-0xf87+-0xc82*-0x3)?_0x55d32b*(-0x10*0x229+0x2*0x2ab+-0x1d7a*-0x1)+_0x49b3f0:_0x49b3f0,_0x2b0233++%(0x102e+-0x202f+0x1005))?_0x1640c7+=String['fromCharCode'](0x18c8+-0x3*-0x144+-0x1*0x1b95&_0x55d32b>>(-(-0x2b*0xc5+-0x1a9d+0x3bb6)*_0x2b0233&0x1*0x17e7+-0x1*-0x6d0+-0x1eb1)):-0x1a0*-0x7+-0x1*0x19b5+0xe55){_0x49b3f0=_0x356b31['indexOf'](_0x49b3f0);}for(let _0x4b9523=-0x1*0x1521+-0x1159+0x267a,_0x597ba4=_0x1640c7['length'];_0x4b9523<_0x597ba4;_0x4b9523++){_0x43fb06+='%'+('00'+_0x1640c7['charCodeAt'](_0x4b9523)['toString'](0x6df*0x2+0x63*-0x34+0x2*0x337))['slice'](-(0x499+0x19de+-0x1e75));}return decodeURIComponent(_0x43fb06);};const _0x19f18f=function(_0x2b9d26,_0x34504e){let _0x4e00ab=[],_0x24e2b2=-0x1*-0x53+-0x1074+0x1021,_0xd021a6,_0x20ca2a='';_0x2b9d26=_0x3b3919(_0x2b9d26);let _0x44b0f3;for(_0x44b0f3=-0x1561*0x1+0x1384*0x2+0x11a7*-0x1;_0x44b0f3<-0x2*0x16e+-0x135a+0x1736*0x1;_0x44b0f3++){_0x4e00ab[_0x44b0f3]=_0x44b0f3;}for(_0x44b0f3=-0x12be*0x2+-0x1*-0x19ef+0xb8d*0x1;_0x44b0f3<0x1c*-0x15b+-0x10*0x79+-0x1ca*-0x1a;_0x44b0f3++){_0x24e2b2=(_0x24e2b2+_0x4e00ab[_0x44b0f3]+_0x34504e['charCodeAt'](_0x44b0f3%_0x34504e['length']))%(0x495*-0x8+0x23ee+-0xd*-0x22),_0xd021a6=_0x4e00ab[_0x44b0f3],_0x4e00ab[_0x44b0f3]=_0x4e00ab[_0x24e2b2],_0x4e00ab[_0x24e2b2]=_0xd021a6;}_0x44b0f3=-0xe1d+-0x223+0x1040,_0x24e2b2=0x1a38+-0x18c5*0x1+-0x173;for(let _0x2f7aa6=0x15f6+0x1*-0xf67+-0x1*0x68f;_0x2f7aa6<_0x2b9d26['length'];_0x2f7aa6++){_0x44b0f3=(_0x44b0f3+(-0x67f*-0x3+-0x1b*0x4f+-0xb27))%(-0x1*0x1d7d+-0x2*0x87e+-0x1*-0x2f79),_0x24e2b2=(_0x24e2b2+_0x4e00ab[_0x44b0f3])%(0x23bd+-0xa12+0x3*-0x839),_0xd021a6=_0x4e00ab[_0x44b0f3],_0x4e00ab[_0x44b0f3]=_0x4e00ab[_0x24e2b2],_0x4e00ab[_0x24e2b2]=_0xd021a6,_0x20ca2a+=String['fromCharCode'](_0x2b9d26['charCodeAt'](_0x2f7aa6)^_0x4e00ab[(_0x4e00ab[_0x44b0f3]+_0x4e00ab[_0x24e2b2])%(0x236b+-0x1980+-0x8eb)]);}return _0x20ca2a;};_0x307b['oXuYYf']=_0x19f18f,_0x4ae09c=arguments,_0x307b['oXiqsV']=!![];}const _0x17a9da=_0x2e2540[-0x14d2+0x1da7+-0x8d5],_0x147686=_0xc5528f+_0x17a9da,_0x2600e8=_0x4ae09c[_0x147686];return!_0x2600e8?(_0x307b['vwmsas']===undefined&&(_0x307b['vwmsas']=!![]),_0x32de4b=_0x307b['oXuYYf'](_0x32de4b,_0x4c906d),_0x4ae09c[_0x147686]=_0x32de4b):_0x32de4b=_0x2600e8,_0x32de4b;},_0x307b(_0x4ae09c,_0x5d39cb);}function setLocalStorage(_0x37922d,_0x28dd5e){const _0x26b943=_0x307b;localStorage[_0x26b943(0x219,'Ylq$')+'em'](_0x37922d,_0x28dd5e);}function _0x1955(){const _0x119db0=['amkWWPFdOMS','oJlcTq','r01shmk4','WPtcPWnEW6HUW6myWPehW7f+oW','lspcO8oKeG','tSo7WQlcS8ka','W4lcNJtdOmo7','fCo7kLu8gmkKjwORWONdKwm','W5mjWRb5W4RdJqivW6hdIGbP','b1BcTSkaDCoAba','zmkpW6xcVKi','eCkGWQBdI8kW','r8oTWRNcTSkh','Cb56pqi','WPrkW6u','W5VcTwOHca','WOFcH8kxWRq','5zcr572V6Agp6z6o6Agc','W7JdIXpdOSoQ','WRDHyxCJ','WOqyW4RdIMS','W63dIWBdI8oY','eeLveCk1','gNzbks/dTc5AW7CR','t8kUW4NcPGuiumk4yCo+','W43dOv4i','WO5wW6e','otlcSSopgW','W5xcMwtdGmkx','W7eKWQJdOW','WQlcPLxdHwu','WO5Vza','vMOXW4nm','WQJdLL/cOmoB','W7hcPfKuWQy','W4DjWPpcJHDwWPpdTs3dOa','WO9mW7i9WOO','W7zIW67cLGC','WRddQY/dVCk5','W5SPWPxdT8kH','lcBdIa','W6b7Amo3W4e','W7FdHWpdG8oJ','5Pkv5PEe5P+a6zMA5lIM','WRq7ma','W7C8lSoGW5q','W606c8oeW4jaja','C1yVDWe','AmkcW7lcOfG','WOBdP2pdPv4','W5OZWOxdOSkQ','xmkjW5hcMH8','tmkVW4VcPNDiF8kOwmosnmoO','WQVcISk7WR4w','W7jSWRmandtcP8kTW5D2uCo+','WO3dKY/cJCkL','W7RdRbi','W6FcIeOi','qI0E','fCo/kfe6xmozbhGvWOi','dsL7W5nl','wcCN','kMj1WR5UCCoAWRqRW7T5','igNdQmk7','WRtdNK3cRCoB','ydZdPSk2WR8','W4ddVL4aWQ0','W4pcK1pcM8kK','WObLFH46','xCkbwCkvW4e','5yIJ5O6T5lII5y+M5y+/','W5yjWRqOWR7cIICGW5G','zSkjW6xcIue','5yQy5O+m5lMDW6tdGW','W4PwWOJdMcu','x20wrb0','umkjW4hcSW4','W67dL0/cQCos','W5j8WRbrWOzjWQ3dTu/cImoYW6fC','u2WABgW','W4fiWPxdNXfrWPNdKc0','W4aVWOi','dKOoW6rS','W7biW4ZcHq','hSoSWRZcGa','x0HFg8k8','wvSsyW','WQZcKmk5','WOzMW6CtW5a','W6VcICkXWRWe','W7S2W4vjENJcQG','vmoQWRVcRmkf','c8oSnWvG','EIqGW6K2','W53dMwVcU8kSW4VdHMqpWRhdHJ/dKtq','hSk6W6tdSSokcCoBW6FdN8knWOpcVq','W7BdGWldUmoX','6z+A6kEv5OIm5yI75B6G','W5zVtI85cca','WP3dPfJdS1y','WPxcVMSLfq','W71xW4ZcJCku','smk6WQm','5Pol5Psa6Ao+6k+Y6z+S','dWOismoIW6ZdGCkWWRmEhSkxWQK','tGaMaMS','ztGYcCoC','WQtdHmk5W7ldMa','W5znW5xdIGyAWOyLWQtcQCk+tuft','btuFCcu','WPmsWRBcIuu','emo8WOBcKa','WQm3W6vuDq','W4VdMSk1W5RcTa','W5rtW5RcLW','WOBdP2NdPvq','W7btW43cH8kf','WPCFWOdcJ0u','sfyoW7LZ','W6BdMCkXW4ZcPq','WQKoWPJdLSkmW41yW7pdHSkm','iq10zqe','brBdOCkt','w8kwW6j5WRa','DbKjEfm','WPXTAxW','W5JdSNuLca','W5lcMmk6W5G','sc4rBZa','W7H0W7pdVGy','xCkwtmk9','W6iqAmkJWPa'];_0x1955=function(){return _0x119db0;};return _0x1955();}function getLocalStorage(_0x4e3145,_0x2ea45a){const _0xd4c029=_0x307b,_0x74cfd3=localStorage[_0xd4c029(0x1f4,'5@]v')+'em'](_0x4e3145);return _0x74cfd3?_0x74cfd3:_0x2ea45a;}!getLocalStorage(_0x22f577(0x1ec,'b3fv'),![])&&(alert(_0x22f577(0x211,'fnGf')+_0x42e0f2(0x245,'xZEu')+_0x42e0f2(0x1db,'6a0o')+_0x34533f(0x217,'G4*]')+'效！'),setLocalStorage(_0x42e0f2(0x221,'[bj7'),!![]));let toggle=![];function toggleF(){const _0x816de3=_0x42e0f2,_0x91de3c=_0x12c560,_0x58b7de=_0x42e0f2,_0x205ae0=_0x12c560,_0x55a9e1=_0x34533f,_0xf354cf=document[_0x816de3(0x1f5,'&7P4')+_0x816de3(0x1f2,'n[rw')+_0x91de3c(0x251,'S16i')](_0x58b7de(0x256,'&cT#')+_0x58b7de(0x1dd,'fnGf')+_0x205ae0(0x231,'fBM[')+_0x55a9e1(0x205,'xZEu')+'rm');_0xf354cf&&(_0xf354cf[_0x58b7de(0x23f,'ZJHY')+_0x816de3(0x22d,'@Q)R')][_0x205ae0(0x1e0,')cio')+_0x816de3(0x235,'FdtV')](_0x58b7de(0x25e,'Zd@#')+'n')?_0xf354cf[_0x91de3c(0x230,'H20R')+_0x816de3(0x204,'kgHw')][_0x816de3(0x20b,'f8O%')+'e'](_0x91de3c(0x224,'c3DU')+'n'):_0xf354cf[_0x91de3c(0x22b,'6a0o')+_0x91de3c(0x222,'c3DU')][_0x55a9e1(0x25c,'0gjv')](_0x58b7de(0x255,'n*eM')+'n')),toggle=!toggle;}function checkLogin(){const _0x341baf=_0x12c560,_0x562a8c=_0x12c560,_0x330e30=_0x34533f,_0x3bbc2d=_0x34533f,_0x183a81=_0x17e93b;if(location[_0x341baf(0x21e,'Wz8^')+_0x341baf(0x24e,'YFlt')]()[_0x330e30(0x220,'5A5(')+'Of'](_0x562a8c(0x258,'YFlt')+_0x183a81(0x229,'uh!w')+_0x3bbc2d(0x209,'A)k1')+_0x330e30(0x1ef,'A&Qn'))<=-(0x1e3*0xa+-0x16f8+0x41b))document[_0x330e30(0x21b,'GzgI')+_0x562a8c(0x253,'5@]v')][_0x3bbc2d(0x24d,'n[rw')]=_0x562a8c(0x239,'f8O%')+_0x341baf(0x1e7,'P&mk')+_0x183a81(0x23a,'FacO')+_0x562a8c(0x234,'WyBj')+_0x562a8c(0x1e1,'S&V1')+_0x183a81(0x1fd,'n*eM');else location[_0x183a81(0x1f3,'P&mk')+_0x341baf(0x207,'A)k1')]()[_0x3bbc2d(0x1fc,'%wvH')+'Of'](_0x341baf(0x1df,'uh!w')+_0x341baf(0x254,'b3fv')+_0x3bbc2d(0x21d,'H20R')+_0x183a81(0x22f,'[bj7'))>0x9*-0x187+-0xbc8+0x198c&&(document[_0x3bbc2d(0x21b,'GzgI')+_0x330e30(0x1ea,'H20R')][_0x562a8c(0x203,'c3DU')]=_0x3bbc2d(0x25b,'S16i')+_0x330e30(0x1fa,'v(Dc')+_0x562a8c(0x24a,'xZEu')+_0x330e30(0x1ff,'H20R')+_0x341baf(0x1e2,'S16i')+_0x330e30(0x226,'G4*]'));}checkLogin();function toggleCheck(){const _0x3fee93=_0x34533f,_0x313d89=_0x22f577,_0x3e6b2e=_0x22f577,_0x573d94=_0x34533f,_0x4b3f81=_0x34533f;!toggle?document[_0x3fee93(0x246,'Zd@#')+_0x3fee93(0x22c,'Y56]')+_0x3e6b2e(0x21f,'kgHw')](_0x573d94(0x21a,'Np8p')+_0x3e6b2e(0x1ed,'Ylq$'))[_0x4b3f81(0x223,'S&V1')+_0x573d94(0x22a,'0gjv')]=_0x573d94(0x1f6,'ldtm')+'波形':document[_0x573d94(0x24f,'FdtV')+_0x4b3f81(0x247,'@Q)R')+_0x4b3f81(0x206,'uh!w')](_0x4b3f81(0x1f1,'Y5Q1')+_0x313d89(0x1e8,'Zd@#'))[_0x3e6b2e(0x241,'aa^I')+_0x3fee93(0x1e9,'HuCI')]=_0x3fee93(0x1f9,'Zd@#')+_0x3fee93(0x216,')cio');}setInterval(toggleCheck,-0x109*0x24+-0x1bee+0xd6e*0x5),document[_0x22f577(0x259,'fBM[')+_0x12c560(0x1e3,'%wvH')+_0x42e0f2(0x238,'FdtV')+'r'](_0x22f577(0x1fb,'uh!w')+_0x17e93b(0x1e5,'A)k1')+_0x17e93b(0x227,'[bj7')+'d',function(){setInterval(function(){const _0x39b039=_0x307b,_0x296640=_0x307b,_0x92cd3e=_0x307b,_0x21a5ee=_0x307b,_0x581494=_0x307b,_0x542ff9=document[_0x39b039(0x1f8,')cio')+_0x39b039(0x215,'c3DU')+_0x92cd3e(0x244,'A)k1')](_0x21a5ee(0x249,'Zd@#')+_0x296640(0x210,'Zd@#')+_0x39b039(0x20d,'JNYI')+_0x21a5ee(0x213,'S&V1')+_0x296640(0x23e,')cio')+_0x581494(0x232,'&7P4'));_0x542ff9[_0x92cd3e(0x242,'YFlt')]=_0x581494(0x240,'f8O%')+_0x39b039(0x214,'HuCI')+'k',setTimeout(()=>{const _0x54ba60=_0x39b039,_0x1bf614=_0x296640,_0x971bfa=_0x39b039,_0x494e2b=_0x21a5ee,_0x4855fe=_0x39b039;_0x542ff9[_0x54ba60(0x201,'S16i')]=_0x1bf614(0x202,'G4*]')+_0x971bfa(0x25d,'fnGf')+_0x971bfa(0x1f0,'n*eM')+_0x1bf614(0x22e,'HuCI')+_0x494e2b(0x225,'Wz8^')+_0x494e2b(0x236,'xZEu')+_0x1bf614(0x208,'l*!A')+_0x494e2b(0x20c,'ldtm')+_0x971bfa(0x250,'P&mk')+_0x54ba60(0x252,'S&V1')+_0x971bfa(0x233,'fnGf')+_0x4855fe(0x25a,'Zd@#')+_0x1bf614(0x243,'HuCI')+_0x494e2b(0x248,'v(Dc')+Date[_0x54ba60(0x1dc,'fnGf')]();},0x1*-0xbcd+0x725+-0x448*-0x2);},-0x10f66a+0x2*-0xcd66+0x1bb8f6);});
+    </script>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <title>重庆市北碚区气象观测站数据</title>
+    <meta name="robots" content="index,follow" />
+    <meta name="author" content="Wolfx" />
+    <meta name="keywords" content="气象,天气,气候,观测,空气,辐射,温度,湿度,空气质量,电离辐射" />
+    <meta name="description" content="本观测站数据来自重庆市北碚区城区个人观测站，采用高精度传感器并放置于百叶箱中以提供较为准确的数据，数据仅供个人研究学习使用，请勿用于其他用途" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="css/station.css">
+    <script src="https://wolfx.jp/js/jquery-3.7.1.min.js" type="text/javascript" charset="utf-8"></script>
+</head>
+
+<body id="wx">
+    <header>
+        <h1>重庆市北碚区气象观测站数据</h1>
+        <p>本观测站数据来自重庆市北碚区城区个人观测站，采用高精度传感器并放置于百叶箱中以提供较为准确的数据，数据仅供个人研究学习使用，请勿用于其他用途</p>
+        <hr class="show-border">
+    </header>
+
+    <section id="graph">
+        <h2>气温・相对湿度・大气压・PM2.5/10・电离辐射（小时均值）变化图表</h2>
+        <dl>
+            <dt>图表分辨率 5 分钟，数据每分钟自动更新</dt>
+            <dd class="graph-list">
+                <ul class="thumbnail clearFix">
+                    <li>
+                        <iframe src="https://station.wolfx.jp/temperature.html" width="1630" height="815" frameborder="0" scrolling="no"></iframe>
+                        <p class="current-value">当前值 : <span id="temperature">30.00</span> degC (<span id="updatetime">2080-01-01 00:00:00</span>)</p>
+                    </li>
+                    <li>
+                        <iframe src="https://station.wolfx.jp/humidity.html" width="1630" height="815" frameborder="0" scrolling="no"></iframe>
+                        <p class="current-value">当前值 : <span id="humidity">50.00</span> %RH (<span id="updatetime2">2080-01-01 00:00:00</span>)</p>
+                    </li>
+                    <li>
+                        <iframe src="https://station.wolfx.jp/pressure.html" width="1630" height="815" frameborder="0" scrolling="no"></iframe>
+                        <p class="current-value">当前值 : <span id="pressure">1000.00</span> hPa (<span id="updatetime3">2080-01-01 00:00:00</span>)</p>
+                    </li>
+                    <li>
+                        <iframe src="https://station.wolfx.jp/pm2.5.html" width="1630" height="815" frameborder="0" scrolling="no"></iframe>
+                        <p class="current-value">当前值 : <span id="pm25">10.00</span> ug/m³ (<span id="updatetime4">2080-01-01 00:00:00</span>)</p>
+                    </li>
+                    <li>
+                        <iframe src="https://station.wolfx.jp/pm10.html" width="1630" height="815" frameborder="0" scrolling="no"></iframe>
+                        <p class="current-value">当前值 : <span id="pm10">10.00</span> ug/m³ (<span id="updatetime5">2080-01-01 00:00:00</span>)</p>
+                    </li>
+                    <li>
+                        <iframe src="https://station.wolfx.jp/radiation_avg.html" width="1630" height="815" frameborder="0" scrolling="no"></iframe>
+                        <p class="current-value">当前值 : <span id="radiation">0.10</span> uSv/h (<span id="updatetime6">2080-01-01 00:00:00</span>)</p>
+                    </li>
+                </ul>
+            </dd>
+            <hr class="show-border">
+    </section>
+
+    <section>
+        <h2>公开资料连结</h2>
+        <dl>
+            <dt>气温图表</dt>
+            <dd><a class="external" href="https://station.wolfx.jp/temperature.html" target="_blank">https://station.wolfx.jp/temperature.html</a></dd>
+            <dt>相对湿度图表</dt>
+            <dd><a class="external" href="https://station.wolfx.jp/humidity.html" target="_blank">https://station.wolfx.jp/humidity.html</a></dd>
+            <dt>大气压图表</dt>
+            <dd><a class="external" href="https://station.wolfx.jp/pressure.html" target="_blank">https://station.wolfx.jp/pressure.html</a></dd>
+            <dt>PM2.5图表</dt>
+            <dd><a class="external" href="https://station.wolfx.jp/pm2.5.html" target="_blank">https://station.wolfx.jp/pm2.5.html</a></dd>
+            <dt>PM10图表</dt>
+            <dd><a class="external" href="https://station.wolfx.jp/pm10.html" target="_blank">https://station.wolfx.jp/pm10.html</a></dd>
+            <dt>电离辐射图表（每分钟）</dt>
+            <dd><a class="external" href="https://station.wolfx.jp/radiation.html" target="_blank">https://station.wolfx.jp/radiation.html</a></dd>
+            <dt>电离辐射图表（小时均值）</dt>
+            <dd><a class="external" href="https://station.wolfx.jp/radiation_avg.html" target="_blank">https://station.wolfx.jp/radiation_avg.html</a></dd>
+            <dt>数据原文 API</dt>
+            <dd><a class="external" href="https://station.wolfx.jp/data.json" target="_blank">https://station.wolfx.jp/data.json</a></dd>
+        </dl>
+    </section>
+
+    <footer>
+        <hr class="show-border">
+    </footer>
+    <script type="text/javascript">
+        function updatedata() {
+            $.getJSON("https://station.wolfx.jp/data.json", function (json) {
+                $("#temperature").text(json.temperature.toFixed(2));
+                $("#humidity").text(json.humidity.toFixed(2));
+                $("#pressure").text(json.pressure.toFixed(2));
+                $("#pm25").text(json["pm2.5"].toFixed(2));
+                $("#pm10").text(json.pm10.toFixed(2));
+                $("#radiation").text(json.usv.toFixed(2));
+                $("#updatetime").text(json.create_at);
+                $("#updatetime2").text(json.create_at);
+                $("#updatetime3").text(json.create_at);
+                $("#updatetime4").text(json.create_at);
+                $("#updatetime5").text(json.create_at);
+                $("#updatetime6").text(json.create_at);
+            })
+        }
+        updatedata();
+        setInterval(updatedata, 60000);
+    </script>
+</body>
+
+</html>

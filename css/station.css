@@ -1,0 +1,96 @@
+@charset "UTF-8";
+
+@font-face {
+    font-family: OPPOSans-R;
+    src: url("https://wolfx.jp/fonts/OPPOSans3.0cn-Regular.woff2") format("woff2");
+}
+
+/* 全体 */
+body {
+    font-family: OPPOSans-R, monospace;
+    background-color: #F0FFFF;
+}
+
+header,
+section,
+footer {
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+button,
+code,
+input,
+option,
+pre,
+select,
+textarea {
+    font-family: OPPOSans-R, monospace;
+}
+
+code {
+    background-color: #EBDFDA;
+}
+
+pre.code {
+    background-color: #EBDFDA;
+}
+
+img {
+    max-width: 100%;
+    border-radius: 5px;
+    box-shadow: 0 0 16px 0 #CCC
+}
+
+a.external:before {
+    content: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAALAgMAAAA2HoTMAAAADFBMVEVMaXGFhYWFhYWFhYUOgb5dAAAAA3RSTlMAD/DAUyoNAAAAIUlEQVQI12Ng/v+XAYwZeBn+A/FlZAwUv8DkAMb//zsAADscDuz/N4DSAAAAAElFTkSuQmCC");
+    margin: 0 0.2em 0 0;
+}
+
+ul.global-nav li {
+    list-style: none;
+    display: inline;
+    margin: 0 0.5em 0 0;
+    font-size: 115%;
+}
+
+hr.show-border {
+    height: 1px;
+    border: none;
+    border-top: 1px #000 solid;
+}
+
+dd.graph-list {
+    margin: 0 0 0 0.5em;
+}
+
+body#default-size {
+    max-width: 854px;
+    margin: 8px auto;
+}
+
+/* --- リスト項目 --- */
+ul.thumbnail li {
+    /* width: 160px; */
+    /* 項目の幅 */
+    /* height: 110px; */
+    /* 項目の高さ（li要素の高さを指定する場合） */
+    float: left;
+    margin-right: 0.5em;
+    margin-bottom: 1em;
+    /* 項目の下マージン */
+    /* text-align: center; */
+}
+
+/* --- clearfix --- */
+.clearFix:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+.clearFix {
+    min-height: 1px;
+}

@@ -1,0 +1,202 @@
+@font-face {
+    font-family: mplus;
+    src: url("https://wolfx.jp/fonts/mplus-1p-bold.ttf") format("truetype");
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    color: #FFF;
+    font-family: mplus;
+    user-select: none;
+}
+
+.flex-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#main2,
+#main3,
+#main4,
+#main5,
+#main6,
+#main7,
+#main8,
+#main9,
+#main10 {
+    width: 300px;
+    background-color: #46646E;
+    color: white;
+    text-align: center;
+    padding: 0px 5px;
+    position: relative;
+    height: 50px;
+}
+
+#shindo {
+    float: left;
+    display: inline-block;
+    width: 80px;
+    font-size: 64px;
+    text-align: center;
+    line-height: 98px;
+    box-sizing: content-box;
+}
+
+#shindo2 {
+    float: left;
+    display: inline-block;
+    width: 0px;
+    font-size: 36px;
+    text-align: center;
+    box-sizing: content-box;
+}
+
+.shindotext {
+    position: absolute;
+    top: 5px;
+    left: 18px;
+    opacity: 0.85;
+    color: #FFF;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+#epicenter {
+    position: relative;
+    font-size: 20px;
+    font-weight: bold;
+    display: inline-block;
+    float: left;
+    top: 5px;
+    left: 0px
+}
+
+.clearfix:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+}
+
+#datetime {
+    display: inline-block;
+    position: absolute;
+    top: 32px;
+    left: 80px;
+}
+
+#mag {
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    top: 50px;
+    left: 80px;
+}
+
+#kmletter,
+#kmletter {
+    top: 65px;
+    left: 285px;
+}
+
+#main {
+    background-color: rgb(92, 105, 105);
+    width: 310px;
+    display: flex;
+    height: 85px;
+}
+
+#epicenter2,
+#epicenter3,
+#epicenter4,
+#epicenter5,
+#epicenter6,
+#epicenter7,
+#epicenter8,
+#epicenter9,
+#epicenter10 {
+    position: absolute;
+    left: 50px;
+    top: 5px;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+#shindo2,
+#shindo3,
+#shindo4,
+#shindo5,
+#shindo6,
+#shindo7,
+#shindo8,
+#shindo9,
+#shindo10 {
+    position: relative;
+    font-size: 35px;
+    left: 10px;
+    line-height: 50px;
+}
+
+#mag2,
+#mag3,
+#mag4,
+#mag5,
+#mag6,
+#mag7,
+#mag8,
+#mag9,
+#mag10 {
+    position: absolute;
+    left: 230px;
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 50px;
+}
+
+#datetime2,
+#datetime3,
+#datetime4,
+#datetime5,
+#datetime6,
+#datetime7,
+#datetime8,
+#datetime9,
+#datetime10 {
+    position: absolute;
+    left: 50px;
+    top: 25px;
+    font-weight: initial;
+}
+
+.shindoplus {
+    font-size: 26px;
+    position: relative;
+    top: -10px;
+    left: -7px;
+}
+
+.shindominus {
+    font-size: 32px;
+    position: relative;
+    top: -8px;
+    left: -5px;
+}
+
+.shindominusfirst {
+    font-size: 60px;
+    position: relative;
+    top: -15px;
+    left: -10px;
+}
+
+.shindoplusfirst {
+    font-size: 50px;
+    position: relative;
+    top: -20px;
+    left: -10px;
+}

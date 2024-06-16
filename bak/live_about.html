@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+  <title>Wolfx 实时地震观测直播说明</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://wolfx.jp/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://wolfx.jp/css/index.css" rel="stylesheet">
+  <link rel="shortcut icon" href="images/favicon.ico">
+  <script src="https://wolfx.jp/js/jquery-3.7.1.min.js"></script>
+  <script src="https://wolfx.jp/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <div class="header">
+      <ul class="nav nav-pills pull-right">
+      </ul>
+      <h3 class="text-muted">Wolfx 实时地震观测直播说明</h3>
+    </div>
+
+    <div class="row">
+      <div class="span10">
+        <div class="ads">
+
+          <h4>简介</h4>
+          <p>
+          <ul>
+            <li>本直播提供以国内地震预警为主的低延迟防灾内容</li>
+            <li>监测站点：<a href="https://stationview.raspberryshake.org/#?net=AM&sta=RED68" target="_blank">AM.RED68.00.EHZ</a></li>
+            <li>监测设备：RPi 4B + RS1D + 4.5Hz垂直检波器</li>
+            <li>监测位置：中国重庆市北碚区(北纬29.8度/东经106.4度)</li>
+            <li>实时地震观测网页版：<a href="https://bousai.cn" target="_blank">https://bousai.cn</a></li>
+            <li>哔哩哔哩直播链接：<a href="https://live.bilibili.com/22863790" target="_blank">https://live.bilibili.com/22863790</a></li>
+          </ul>
+          </p>
+
+          <h4>观看许可</h4>
+          <p>
+          <ul>
+            <li>本直播提供的所有内容均向公众开放，您可以在遵守以下条例的前提下自由使用</li>
+            <li>若要在其他地方引用本直播内容，请注明内容来自本直播间或UP主@チルノヽ</li>
+            <li>本直播间内自制软件UI版权归本人所有，禁止套用用于二次开发</li>
+            <li>您自愿接收来自本直播间提供的所有防灾信息</li>
+          </ul>
+          </p>
+
+          <h4>注意事项</h4>
+          <p>
+          <ul>
+            <li>地震数据带通滤波: 0.1Hz-10Hz</li>
+            <li>部分画面使用UTC时间记录，换算为北京时间需加8小时</li>
+            <li>由于B站方面原因，直播推流画面可能会延迟1~5秒左右</li>
+            <li>如果您在观看过程中遇到任何问题，请在与本人进行联系</li>
+            <li>网页中的震度指由JMA制定的日本震度标准，烈度指由CSIS制定的中国烈度标准</li>
+            <li>由于地震测站位于城市市区地表，因此可能会出现一些背景噪声，一般可以很容易的将它们与地震波形所区分</li>
+            <li>本系统将在检测到地震时自动发出警报，在极少数情况下可能会出现误报(如电磁干扰或打雷等)，您可以透过观测震动频谱来判定是否为地震</li>
+          </ul>
+          </p>
+
+          <h4>各介面说明</h4>
+          <p>
+          <ul>
+            <li>左上方为CEIV2(中国地震信息+四川局地震预警+国内测点实时数据)</li>
+            <li>左下方(左)为日本JQuake(实时测点震度+DMDSS预警)</li>
+            <li>左下方(右上)为实时成都地震动波形</li>
+            <li>左下方(右下)为ICL地震预警+实时测站数据</li>
+            <li>右上方为近6小时内所记录的地震动波形图(无滤波)</li>
+            <li>右下方为实时重庆地震动波形/0-15Hz频谱分布图</li>
+          </ul>
+          </p>
+
+          <h4>公开资料</h4>
+          <p>
+          <ul>
+            <li>公开API调用文档：<a href="https://api.wolfx.jp" target="_blank">https://api.wolfx.jp</a></li>
+            <li>JMA地震情报列表(新版)：<a href="https://bousai.cn/newJMAEQList" target="_blank">https://bousai.cn/newJMAEQList</a></li>
+            <li>JMA地震情报列表(旧版)：<a href="https://bousai.cn/JMAEQList" target="_blank">https://bousai.cn/JMAEQList</a></li>
+            <li>CENC地震情报列表：<a href="https://bousai.cn/CENCEQList" target="_blank">https://bousai.cn/CENCEQList</a></li>
+            <li>重庆北碚地震观测点数据：<a href="https://bousai.cn/LocalShindo" target="_blank">https://bousai.cn/LocalShindo</a></li>
+            <li>最近7天内的地震波形展示(无滤波)：<a href="https://heli.bousai.cn" target="_blank">https://heli.bousai.cn</a></li>
+            <li>实时气象观测站数据及API：<a href="https://bousai.cn/station.html" target="_blank">https://bousai.cn/station.html</a></li>
+          </ul>
+          </p>
+
+          <h4>第三方资料提供及致谢(排名不分先后)</h4>
+          <p>
+          <ul>
+            <li><a href="https://jquake.net" target="_blank">JQuake</a></li>
+            <li><a href="https://projectbs.cn" target="_blank">Project BS & Yowot</a></li>
+            <li><a href="https://space.bilibili.com/12982030" target="_blank">丿丶夜曦</a></li>
+            <li><a href="http://www.scdzj.gov.cn" target="_blank">四川省地震局</a></li>
+            <li><a href="https://news.ceic.ac.cn" target="_blank">中国地震台网</a></li>
+            <li><a href="http://www.365icl.com" target="_blank">成都高新减灾研究所</a></li>
+            <li><a href="https://raspberryshake.org" target="_blank">Raspberry Shake</a></li>
+          </ul>
+          </p>
+
+          <h5>最后更新时间: 2024/03/16</h5>
+
+          <div class="footer">
+            <p>Copyright &copy; <a href="https://wolfx.jp">Wolfx Project.</a> All Rights Reserved.</p>
+          </div>
+        </div>
+</body>
+
+</html>

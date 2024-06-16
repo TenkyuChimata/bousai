@@ -1,0 +1,255 @@
+@font-face {
+	font-family: OPPOSans-H;
+	src: url("https://wolfx.jp/fonts/OPPOSans3.0cn-Bold.woff2") format("woff2");
+}
+
+@font-face {
+	font-family: OPPOSans-B;
+	src: url("https://wolfx.jp/fonts/OPPOSans3.0cn-Medium.woff2") format("woff2");
+}
+
+* {
+	padding: 0;
+	margin: 0;
+	font-family: OPPOSans-B, sans-serif;
+}
+
+::-webkit-scrollbar {
+	width: 0;
+	height: 0;
+	background-color: transparent;
+}
+
+html,
+body {
+	font-family: oppo-B, sans-serif;
+	height: 100%;
+	overflow: auto;
+	-webkit-overflow-scrolling: touch;
+}
+
+body {
+	position: relative;
+	font-family: oppo-B, sans-serif;
+	background-color: #242424;
+	overflow: hidden;
+}
+
+body:-webkit-scrollbar {
+	width: 0;
+	height: 0;
+	background-color: transparent;
+}
+
+#map {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: calc(100% - 0px);
+	height: calc(100% - 0px);
+	float: left;
+	box-shadow: 0px 0px 10px 6px rgba(0, 0, 0, 0.1);
+}
+
+.mapboxgl-popup {
+	max-width: 200px;
+	color: black;
+	font-size: 18px;
+}
+
+.mapboxgl-ctrl-top-right {
+	z-index: 99999;
+}
+
+.mapboxgl-popup-content {
+	text-align: left;
+}
+
+.mapbox-improve-map {
+	display: none;
+}
+
+.mapboxgl-ctrl-attrib {
+	display: none;
+}
+
+a.mapboxgl-ctrl-logo {
+	display: none !important;
+}
+
+.epicenterMarker {
+	background-image: url('../img/epicenter.png');
+	background-size: cover;
+	width: 50px;
+	height: 50px;
+	cursor: pointer;
+}
+
+.epicenterMarker1 {
+	background-image: url('../img/1.png');
+	background-size: cover;
+	width: 50px;
+	height: 50px;
+	cursor: pointer;
+}
+
+.epicenterMarker2 {
+	background-image: url('../img/2.png');
+	background-size: cover;
+	width: 50px;
+	height: 50px;
+	cursor: pointer;
+}
+
+.epicenterMarker3 {
+	background-image: url('../img/3.png');
+	background-size: cover;
+	width: 50px;
+	height: 50px;
+	cursor: pointer;
+}
+
+.epicenterMarker4 {
+	background-image: url('../img/4.png');
+	background-size: cover;
+	width: 50px;
+	height: 50px;
+	cursor: pointer;
+}
+
+.epicenterMarker5 {
+	background-image: url('../img/5.png');
+	background-size: cover;
+	width: 50px;
+	height: 50px;
+	cursor: pointer;
+}
+
+#list {
+	position: absolute;
+	right: 20px;
+	top: 20px;
+	width: 350px;
+	height: calc(100% - 40px);
+	z-index: 99991;
+	border-radius: 10px;
+	box-shadow: 0px 0px 10px 6px rgba(0, 0, 0, 0.1);
+	opacity: 1;
+	overflow: scroll;
+	background-color: #212121;
+}
+
+#eewBar_Top {
+	position: absolute;
+	left: 20px;
+	top: 20px;
+	background-color: #242424;
+	width: 350px;
+	height: 30px;
+	z-index: 100;
+	border-radius: 10px;
+	color: white;
+	text-align: center;
+	line-height: 30px;
+	font-size: 18px;
+	border: 2px solid white;
+	box-sizing: border-box;
+}
+
+#eewBar_Int {
+	visibility: hidden;
+	position: absolute;
+	left: 20px;
+	top: 60px;
+	width: 97px;
+	height: 97px;
+	background-color: #242424;
+	border-radius: 10px;
+	z-index: 100;
+	text-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+	line-height: 97px;
+	text-align: center;
+	font-size: 70px;
+	font-family: OPPOSans-H;
+	color: white;
+	border: 3px solid white;
+	box-sizing: border-box;
+}
+
+#eewBar_Info {
+	visibility: hidden;
+	position: absolute;
+	left: 127px;
+	top: 60px;
+	background-color: #242424;
+	border-radius: 10px;
+	z-index: 100;
+	width: 243px;
+	height: 97px;
+	border: 2px solid white;
+	color: white;
+	box-sizing: border-box;
+}
+
+#eewBar_Epicenter {
+	visibility: hidden;
+	position: absolute;
+	top: 6px;
+	left: 5px;
+	z-index: 101;
+	font-size: 20px;
+}
+
+#eewBar_Time {
+	visibility: hidden;
+	position: absolute;
+	top: 31px;
+	left: 5px;
+	z-index: 101;
+	font-size: 20px;
+}
+
+#eewBar_MagnitudeDepth {
+	visibility: hidden;
+	position: absolute;
+	top: 62px;
+	left: 5px;
+	z-index: 101;
+	font-size: 30px;
+}
+
+#eewBar_Bottom {
+	visibility: hidden;
+	position: absolute;
+	left: 20px;
+	top: 170px;
+	background-color: #242424;
+	width: 350px;
+	height: 30px;
+	z-index: 100;
+	border-radius: 10px;
+	color: white;
+	text-align: center;
+	line-height: 26px;
+	font-size: 18px;
+	border: 2px solid white;
+	box-sizing: border-box;
+}
+
+#currentTime {
+	position: absolute;
+	bottom: 107px;
+	right: 10px;
+	color: red;
+	font-size: 20px;
+	z-index: 999999;
+	font-weight: bold;
+	font-family: OPPOSans-B, sans-serif;
+}
+
+#bbshindo {
+    position: absolute;
+    bottom: -51px;
+    right: 10px;
+    z-index: 999999;
+}

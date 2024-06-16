@@ -1,0 +1,17 @@
+#settingsBu {
+	position: absolute;
+	bottom: 8px;
+	left: 8px;
+	z-index: 500;
+	height: 30px;
+	width: 85px;
+	background-color: rgba(0, 0, 125, 0.8);
+	border: 2px solid #fff;
+	border-radius: 5px;
+	margin: 0 auto;
+	text-align: center;
+	color: white;
+	cursor: hand;
+	line-height: 30px;
+	font-size: 16px;
+}
